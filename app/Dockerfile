@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
-COPY .yarn/releases/ /usr/src/app/ .yarn/releases/
+COPY .yarn/releases/ /usr/src/app/.yarn/releases/
 COPY package.json yarn.lock .yarnrc.yml tsconfig.json /usr/src/app/
 COPY app/package.json /usr/src/app/app/package.json
 
