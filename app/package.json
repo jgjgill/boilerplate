@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "node ./esbuild.config.js",
-    "start": "node --loader=extensionless ./dist/index.js",
+    "start": "NODE_ENV=production node --loader=extensionless ./dist/index.js",
     "test": "vitest run"
   },
   "nodemonConfig": {
