@@ -20,4 +20,4 @@ ENV PORT=10000
 EXPOSE 10000
 
 # 서버 실행
-CMD ['yarn', 'workspace', '@boilerplate-demo/app', 'start']
+CMD ["yarn", "workspace", "@boilerplate-demo/app", "start"]
