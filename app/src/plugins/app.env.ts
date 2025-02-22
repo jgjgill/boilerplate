@@ -4,6 +4,7 @@ import fp from "fastify-plugin";
 
 const schema = Type.Object({
   COOKIE_SECRET: Type.String(),
+  HIVE_TOKEN: Type.String(),
 });
 
 declare module "fastify" {

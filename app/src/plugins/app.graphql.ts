@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { useHive } from "@graphql-hive/envelop";
 import fp from "fastify-plugin";
 import { createSchema, createYoga } from "graphql-yoga";
 import type { Context } from "../graphql/Context";
@@ -16,7 +17,19 @@ export default fp(
       typeDefs,
       resolvers,
     });
-    const yoga = createYoga<Context>({ schema });
+    const yoga = createYoga<Context>({
+      schema,
+      plugins: [
+        useHive({
+          token: app.env.HIVE_TOKEN,
+          usage: true,
+          reporting: {
+            author: "jgjgill",
+            commit: "first commit",
+          },
+        }),
+      ],
+    });
 
     app.route({
       method: ["GET", "POST", "OPTIONS"],
