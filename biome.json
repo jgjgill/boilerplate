@@ -6,14 +6,22 @@
     "indentWidth": 2
   },
   "linter": {
-    "enabled": true
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
   },
   "organizeImports": {
     "enabled": true
   },
   "files": {
     "ignore": [
-      ".pnp.cjs"
+      ".vscode/**",
+      ".yarn/**",
+      "package.json",
+      "node_modules/**",
+      "coverage/**",
+      "dist/**"
     ]
   }
 }
