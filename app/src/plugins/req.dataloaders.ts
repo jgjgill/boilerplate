@@ -7,7 +7,7 @@ declare module "fastify" {
 }
 
 export default fp(
-  (app) => {
+  async (app) => {
     app.decorateRequest("dataloaders", null as any);
 
     app.addHook("preHandler", async (req) => {
