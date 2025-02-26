@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "build": "node ./esbuild.config.js",
+    "build": "node ./esbuild.config.js && react-router build",
     "start": "NODE_ENV=production node --loader=extensionless ./dist/index.js",
     "test": "vitest run"
   },
@@ -11,7 +11,8 @@
     "watch": "src",
     "ignore": [
       "dist/**",
-      "node_modules/**"
+      "node_modules/**",
+      "src/web/**"
     ],
     "ext": "ts",
     "exec": "rm -rf ./dist && yarn node ./esbuild.config.js && node --loader=extensionless ./dist/index.js | yarn pino-pretty --singleLine"
@@ -20,6 +21,7 @@
     "@fastify/autoload": "^6.1.0",
     "@fastify/cors": "^10.0.2",
     "@fastify/env": "^5.0.2",
+    "@mcansh/remix-fastify": "^4.0.5",
     "@react-router/node": "^7.1.5",
     "@sinclair/typebox": "^0.34.16",
     "dotenv": "^16.4.7",
