@@ -13,20 +13,14 @@ export default fp(
       "utf-8",
     );
 
-    const schema = createSchema<Context>({
-      typeDefs,
-      resolvers,
-    });
+    const schema = createSchema<Context>({ typeDefs, resolvers });
     const yoga = createYoga<Context>({
       schema,
       plugins: [
         useHive({
           token: app.env.HIVE_TOKEN,
           usage: true,
-          reporting: {
-            author: "jgjgill",
-            commit: "first commit",
-          },
+          reporting: { author: "jgjgill", commit: "first commit" },
         }),
       ],
     });
@@ -35,10 +29,7 @@ export default fp(
       method: ["GET", "POST", "OPTIONS"],
       url: yoga.graphqlEndpoint,
       async handler(req, reply) {
-        const context: Context = {
-          app,
-          req,
-        };
+        const context: Context = { app, req };
 
         const response = await yoga.handleNodeRequestAndResponse(
           req,
