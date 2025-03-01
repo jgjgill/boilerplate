@@ -5,7 +5,11 @@ import fastify from "fastify";
 const SECOND = 1000;
 
 export async function makeApp() {
-  const app = fastify({ logger: true, pluginTimeout: 60 * SECOND });
+  const app = fastify({
+    logger: true,
+    pluginTimeout: 60 * SECOND,
+    disableRequestLogging: true,
+  });
 
   /**
    * 플러그인을 등록합니다
