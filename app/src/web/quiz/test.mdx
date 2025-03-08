@@ -1,0 +1,50 @@
+---
+title: "TypeScript 기본 타입 테스트"
+---
+
+import QuizMultipleChoice from '../components/quiz-multiple-choice';
+
+# TypeScript 기본 타입 테스트
+
+TypeScript에서 기본 타입에 대한 간단한 테스트입니다.
+
+```javascript
+function createStyleObject(classNames, style) {
+  return classNames.reduce((styleObject, className) => {
+    return {...styleObject, ...style[className]};
+  }, {});
+}
+```
+
+```jsx
+<ReactMarkdown
+  components={{
+    code({ inline, className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || '')
+      return !inline && match ? (
+        <SyntaxHighlighter language={match[1]} PreTag="div" {...props} style={oneDark}>
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      ) : (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      )
+    },
+  }}
+>
+  {post}
+</ReactMarkdown>
+```
+
+<QuizMultipleChoice
+  question="TypeScript에서 변수의 타입을 명시적으로 선언하는 방법은 무엇인가요?"
+  options={[
+    "var name = type",
+    "let name: type",
+    "const name -> type",
+    "type name = value"
+  ]}
+  correctIndex={1}
+  explanation="TypeScript에서는 변수명 뒤에 콜론(:)을 붙이고 그 뒤에 타입을 작성하는 방식으로 타입을 명시적으로 선언합니다."
+/>
